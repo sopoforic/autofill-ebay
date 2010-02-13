@@ -2,7 +2,7 @@
 // @name           Autofill eBay Maximum Bid
 // @namespace      http://sopoforic.wordpress.com/
 // @description    Automatically fills in the maximum bid box with the minimum possible bid.
-// @version        0.1.3
+// @version        0.1.4
 // @copyright      2010+, Tracy Poff (http://sopoforic.wordpress.com/)
 // @license        GPL version 3 or any later version; http://www.gnu.org/copyleft/gpl.html
 // @include        *.ebay.tld/*
@@ -11,7 +11,14 @@ try{
 var MaxBidElement;
 var amount;
 
-if (MaxBidElement = document.getElementById("v4-29")){
+if (MaxBidElement = document.getElementById("v4-23")){
+	//US currency, another page
+	MaxBidElement.innerHTML.match(/Enter US \$(\d+\.\d+) or more/);
+	amount = RegExp.$1;
+	var maxbid_box = document.getElementById("v4-22");
+	if(maxbid_box){maxbid_box.value = amount;} 
+}
+else if (MaxBidElement = document.getElementById("v4-29")){
 	//US currency normal page
 	MaxBidElement.innerHTML.match(/Enter US \$(\d+\.\d+) or more/);
 	amount = RegExp.$1;
