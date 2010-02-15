@@ -33,9 +33,9 @@ else if (MaxBidElement = document.getElementById("v4-29")){
 	//US currency normal page
 	MaxBidElement.innerHTML.match(/Enter US \$(\d+\.\d+) or more/);
 	amount = RegExp.$1;
-	var maxbid_box = document.getElementById("v4-12");
-	if(maxbid_box){maxbid_box.value = amount;} 
-    else if (maxbid_box = document.getElementById("v4-28") {maxbid_box.value = amount;}
+	var maxbid_box = document.getElementsByTagName("maxbid");
+    //this isn't helping. Need a better way to do this.
+	if(maxbid_box){maxbid_box(0).value = amount;}
 }
 else if (MaxBidElement = document.getElementById("v4-30")){
 	//AU currency normal page
@@ -69,4 +69,5 @@ else if (MaxBidElement = document.getElementById("v4-32")){
 }
 catch(err){
 	alert(err);
+
 }
