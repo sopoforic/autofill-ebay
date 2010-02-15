@@ -2,7 +2,7 @@
 // @name           Autofill eBay Maximum Bid
 // @namespace      http://sopoforic.wordpress.com/
 // @description    Automatically fills in the maximum bid box with the minimum possible bid.
-// @version        0.1.5
+// @version        0.1.6
 // @copyright      2010+, Tracy Poff (http://sopoforic.wordpress.com/)
 // @license        GPL version 3 or any later version; http://www.gnu.org/copyleft/gpl.html
 // @include        *.ebay.tld/*
@@ -14,10 +14,20 @@ var amount;
 
 if (MaxBidElement = document.getElementById("v4-23")){
 	//US currency, another page
-	MaxBidElement.innerHTML.match(/Enter US \$(\d+\.\d+) or more/);
-	amount = RegExp.$1;
-	var maxbid_box = document.getElementById("v4-22");
-	if(maxbid_box){maxbid_box.value = amount;} 
+    if(MaxBidElement.innerHTML.match(/Enter US \$(\d+\.\d+) or more/)){
+        amount = RegExp.$1;
+        document.getElementById("v4-22").value = amount
+    }
+    else if (MaxBidElement.innerHTML.match(/Geben Sie mindestens EUR (\d+\,\d+) ein/)) {
+        //from eBay.de, EUR currency
+        amount = RegExp.$1;
+        document.getElementById("v4-22").value = amount
+    }
+    else if (document.getElementById("v4-24").innerHTML.match(/Enter EUR (\d+\.\d+) or more/)) {
+        //EUR on ebay.com
+        amount = RegExp.$1;
+        document.getElementById("v4-23").value = amount
+    }
 }
 else if (MaxBidElement = document.getElementById("v4-29")){
 	//US currency normal page
@@ -25,6 +35,7 @@ else if (MaxBidElement = document.getElementById("v4-29")){
 	amount = RegExp.$1;
 	var maxbid_box = document.getElementById("v4-12");
 	if(maxbid_box){maxbid_box.value = amount;} 
+    else if (maxbid_box = document.getElementById("v4-28") {maxbid_box.value = amount;}
 }
 else if (MaxBidElement = document.getElementById("v4-30")){
 	//AU currency normal page
