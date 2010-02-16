@@ -20,6 +20,9 @@ if (document.getElementById("vi-tTbl")) {
     else if (document.getElementById("vi-tTbl").innerHTML.match(/Enter EUR (\d+\.\d+) or more/)) {
         document.getElementsByName("maxbid")[0].value = RegExp.$1;
     }
+    else if (document.getElementById("vi-tTbl").innerHTML.match(/Enter GBP (\d+\.\d+) or more/)) {
+        document.getElementsByName("maxbid")[0].value = RegExp.$1;
+    }
 }
 }
 catch(err){
