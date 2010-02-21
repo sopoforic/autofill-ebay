@@ -2,7 +2,7 @@
 // @name           Autofill eBay Maximum Bid
 // @namespace      http://sopoforic.wordpress.com/
 // @description    Automatically fills in the maximum bid box with the minimum possible bid.
-// @version        0.3.0
+// @version        0.3.1
 // @copyright      2010+, Tracy Poff (http://sopoforic.wordpress.com/)
 // @license        GPL version 3 or any later version; http://www.gnu.org/copyleft/gpl.html
 // @include        *.ebay.tld/*
@@ -13,18 +13,13 @@ try{
 var pattern = new Array();
 
 //English patterns
-pattern.push(/Enter US \$(\d+\.\d+) or more/);
-pattern.push(/Enter EUR (\d+\.\d+) or more/);
-pattern.push(/Enter GBP (\d+\.\d+) or more/);
+pattern.push(/Enter US \$(\d+\.\d+)/);
+pattern.push(/Enter EUR (\d+\.\d+)/);
+pattern.push(/Enter GBP (\d+\.\d+)/);
 
 //German patterns
-pattern.push(/Geben Sie mindestens EUR (\d+\,\d+) ein/);
-pattern.push(/Geben Sie mindestens £(\d+\,\d+) ein/);
-
-var outbidpattern = new Array();
-
-//English outbid patterns
-outbidpattern.push(/Enter US \$(\d+\.\d+)/);
+pattern.push(/Geben Sie mindestens EUR (\d+\,\d+)/);
+pattern.push(/Geben Sie mindestens £(\d+\,\d+)/);
 
 //Ordinary item page
 if (document.getElementById("vi-tTbl")) {
@@ -37,8 +32,8 @@ if (document.getElementById("vi-tTbl")) {
 }
 //"You've just been outbid" page
 else if (document.getElementsByName("OutbidForm")[0]) {
-    for (x in outbidpattern) {
-        if (document.getElementsByName("OutbidForm")[0].innerHTML.match(outbidpattern[x])) {
+    for (x in pattern) {
+        if (document.getElementsByName("OutbidForm")[0].innerHTML.match(pattern[x])) {
             document.getElementsByName("maxbid")[0].value = RegExp.$1;
             break;
         }
