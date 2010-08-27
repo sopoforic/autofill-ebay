@@ -20,7 +20,7 @@ pattern.push(/Enter\sAU\s\$(\d+\.\d+)/);
 
 //German patterns
 pattern.push(/Geben\sSie\smindestens\sEUR (\d+\,\d+)/);
-pattern.push(/Geben\sSie\smindestenss£(\d+\,\d+)/);
+pattern.push(/Geben\sSie\smindestens\s£(\d+\,\d+)/);
 
 //Ordinary item page
 if (document.getElementById("vi-tTbl")) {
