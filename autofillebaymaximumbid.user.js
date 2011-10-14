@@ -2,7 +2,7 @@
 // @name           Autofill eBay Maximum Bid
 // @namespace      http://sopoforic.wordpress.com/
 // @description    Automatically fills in the maximum bid box with the minimum possible bid.
-// @version        0.4.0
+// @version        0.4.1
 // @copyright      2010+, Tracy Poff (http://sopoforic.wordpress.com/)
 // @license        GPL version 3 or any later version; http://www.gnu.org/copyleft/gpl.html
 // @include        *.ebay.tld/*
@@ -17,6 +17,7 @@ pattern.push(/Enter US \$(\d+\.\d+)/);
 pattern.push(/Enter EUR (\d+\.\d+)/);
 pattern.push(/Enter GBP (\d+\.\d+)/);
 pattern.push(/Enter AU \$(\d+\.\d+)/);
+pattern.push(/Enter £(\d+\.\d+)/);
 
 //German patterns
 pattern.push(/Geben Sie mindestens EUR (\d+\,\d+)/);
