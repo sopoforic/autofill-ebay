@@ -2,11 +2,10 @@
 // @name           Autofill eBay Maximum Bid
 // @namespace      http://sopoforic.wordpress.com/
 // @description    Automatically fills in the maximum bid box with the minimum possible bid.
-// @version        0.4.1
+// @version        0.4.2
 // @copyright      2010+, Tracy Poff (http://sopoforic.wordpress.com/)
 // @license        GPL version 3 or any later version; http://www.gnu.org/copyleft/gpl.html
 // @include        *.ebay.tld/*
-// @require        http://sizzlemctwizzle.com/updater.php?id=67507
 // ==/UserScript==
 try{
 
